@@ -1,25 +1,20 @@
 package me.whiteship.java8to11;
 
-import java.util.Arrays;
-import java.util.Random;
-import java.util.stream.IntStream;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Function;
 
 public class App {
 
     public static void main(String[] args) {
-        int size = 1500;
-        int[] numbers = new int[size];
-        Random random = new Random();
+        List<String> name = new ArrayList<>();
+        name.add("kim");
+        name.add("sim");
+        name.add("dim");
+        name.add("qim");
 
-        IntStream.range(0, size).forEach(i -> numbers[i] = random.nextInt());
-        long start = System.nanoTime();
-        Arrays.sort(numbers);
-        System.out.println("serial sorting took " + (System.nanoTime() - start));
+        Function<Integer, int[]> function = int[]::new;
 
-        IntStream.range(0, size).forEach(i -> numbers[i] = random.nextInt());
-        start = System.nanoTime();
-        Arrays.parallelSort(numbers);
-        System.out.println("parallel sorting took " + (System.nanoTime() - start));
 
     }
 
